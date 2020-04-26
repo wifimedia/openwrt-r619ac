@@ -23,6 +23,8 @@ ipq40xx_setup_interfaces()
 		ucidef_set_interfaces_lan_wan "eth1" "eth0"
 		;;
 	asus,rt-ac58u|\
+	p2w,r619ac-128m|\
+	p2w,r619ac|\
 	zyxel,nbg6617)
 		ucidef_set_interfaces_lan_wan "eth0" "eth1"
 		ucidef_add_switch "switch0" \
@@ -73,6 +75,12 @@ ipq40xx_setup_macs()
 	local board="$1"
 
 	case "$board" in
+	p2w,r619ac-128m|\
+	p2w,r619ac)
+		lan_mac=$(cat /sys/class/net/eth0/address)
+		wan_mac=$(macaddr_add "$lan_mac" 1)
+		label_mac=$lan_mac
+		;;
 	asus,rt-ac58u)
 		CI_UBIPART=UBI_DEV
 		wan_mac=$(mtd_get_mac_binary_ubi Factory 20486)

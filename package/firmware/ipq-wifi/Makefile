@@ -23,7 +23,7 @@ endef
 # <https://wireless.wiki.kernel.org/en/users/drivers/ath10k/boardfiles>
 #
 
-ALLWIFIBOARDS:= \
+ALLWIFIBOARDS:= p2w_r619ac  \
 	alfa-network_ap120c-ac \
 	asus_map-ac2200 \
 	avm_fritzbox-7530 \
@@ -105,6 +105,7 @@ $(eval $(call generate-ipq-wifi-package,engenius_eap1300,EnGenius EAP1300))
 $(eval $(call generate-ipq-wifi-package,engenius_ens620ext,EnGenius ENS620EXT))
 $(eval $(call generate-ipq-wifi-package,linksys_ea6350v3,Linksys EA6350v3))
 $(eval $(call generate-ipq-wifi-package,linksys_ea8300,Linksys EA8300))
+$(eval $(call generate-ipq-wifi-package,p2w_r619ac,board-p2w_r619ac.qca4019,P&W R619AC))
 $(eval $(call generate-ipq-wifi-package,qxwlan_e2600ac,Qxwlan E2600AC))
 
 $(foreach PACKAGE,$(ALLWIFIPACKAGES),$(eval $(call BuildPackage,$(PACKAGE))))

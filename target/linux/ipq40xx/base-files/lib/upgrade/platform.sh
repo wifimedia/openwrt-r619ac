@@ -46,6 +46,8 @@ zyxel_do_upgrade() {
 
 platform_do_upgrade() {
 	case "$(board_name)" in
+	p2w,r619ac-128m |\
+	p2w,r619ac |\
 	8dev,jalapeno |\
 	alfa-network,ap120c-ac |\
 	avm,fritzbox-7530 |\

@@ -104,6 +104,9 @@ case "$FIRMWARE" in
 	esac
 	;;
 "ath10k/pre-cal-pci-0000:01:00.0.bin")
+	if [ "$board" = "p2w,r619ac" ] || [ "$board" = "p2w,r619ac-128m" ] ; then
+		ath10kcal_extract "ART" 36864 12064
+	fi
 	case "$board" in
 	asus,map-ac2200)
 		ath10kcal_ubi_extract "Factory" 36864 12064
@@ -130,6 +133,8 @@ case "$FIRMWARE" in
 	;;
 "ath10k/pre-cal-ahb-a000000.wifi.bin")
 	case "$board" in
+	p2w,r619ac |\
+	p2w,r619ac-128m |\
 	8dev,jalapeno |\
 	alfa-network,ap120c-ac |\
 	glinet,gl-b1300 |\
@@ -192,6 +197,8 @@ case "$FIRMWARE" in
 	;;
 "ath10k/pre-cal-ahb-a800000.wifi.bin")
 	case "$board" in
+	p2w,r619ac |\
+	p2w,r619ac-128m |\
 	8dev,jalapeno |\
 	alfa-network,ap120c-ac |\
 	glinet,gl-b1300 |\
